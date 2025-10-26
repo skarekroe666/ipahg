@@ -1,7 +1,12 @@
 package main
 
-import "log"
+import (
+	"ipahg/internal"
+	"log"
+)
 
 func main() {
 	log.Println("hello from ipahg")
+
+	internal.FetchApi()
 }
