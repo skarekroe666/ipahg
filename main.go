@@ -1,9 +1,14 @@
+/*
+Copyright © 2025 NAME HERE <EMAIL ADDRESS>
+*/
 package main
 
 import (
-	"ipahg/internal"
+	"ipahg/cmd"
 )
 
 func main() {
-	internal.FetchApi("skarekroe666")
+	// internal.FetchApi("skarekroe666")
+
+	cmd.Execute()
 }
