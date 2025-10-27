@@ -8,7 +8,5 @@ import (
 )
 
 func main() {
-	// internal.FetchApi("skarekroe666")
-
 	cmd.Execute()
 }

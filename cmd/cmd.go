@@ -12,7 +12,7 @@ var fetchInfo = &cobra.Command{
 	Long:  "This command gives some basic info of the username entered",
 	Args:  cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		user := "skarekroe666"
+		user := ""
 		if len(args) == 1 {
 			user = args[0]
 		}
