@@ -42,12 +42,13 @@ ipahg/
 
 ## Step-by-Step Execution Guide
 
-### Step 1: Clone or Navigate to the Project
+### Step 1: Clone the Repository
 
-If you haven't already, navigate to the project directory:
+Clone the repository and navigate to the project directory:
 
 ```bash
-cd /home/skarekroe/code/go/cli/ipahg
+git clone https://github.com/skarekroe666/ipahg.git
+cd ipahg
 ```
 
 ### Step 2: Install Dependencies
