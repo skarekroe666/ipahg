@@ -11,10 +11,10 @@ func TestFetchApi(t *testing.T) {
 		expected User
 	}{
 		{
-			input: "skarekroe666",
+			input: "someuser",
 			expected: User{
 				URL:       "https://github.com/users/someuser",
-				Username:  "skarekroe666",
+				Username:  "someuser",
 				Repos:     20,
 				CreatedAt: time.Now(),
 				Social:    "something",
