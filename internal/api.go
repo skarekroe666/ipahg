@@ -32,6 +32,25 @@ func FetchApi(cmd string) {
 
 	fullURL := ghUrl + cmd
 
+	body, err := getUserInfo(fullURL)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var u User
+	if err := json.Unmarshal(body, &u); err != nil {
+		log.Fatal("could not unmarshal data:", err)
+	}
+	// fmt.Println(u)
+
+	fmt.Printf("User URL: %v\n", u.URL)
+	fmt.Printf("Username: %v\n", u.Username)
+	fmt.Printf("Public Repos: %v\n", u.Repos)
+	fmt.Printf("Created At: %v\n", u.CreatedAt)
+	fmt.Printf("Social Handles: %v\n", u.Social)
+}
+
+func getUserInfo(fullURL string) ([]byte, error) {
 	limiter := rate.NewLimiter(rate.Every(5*time.Second), 5)
 
 	client := http.Client{}
@@ -61,15 +80,5 @@ func FetchApi(cmd string) {
 		log.Fatal("could not read the response:", err)
 	}
 
-	var u User
-	if err := json.Unmarshal(body, &u); err != nil {
-		log.Fatal("could not unmarshal data:", err)
-	}
-	// fmt.Println(u)
-
-	fmt.Printf("User URL: %v\n", u.URL)
-	fmt.Printf("Username: %v\n", u.Username)
-	fmt.Printf("Public Repos: %v\n", u.Repos)
-	fmt.Printf("Created At: %v\n", u.CreatedAt)
-	fmt.Printf("Social Handles: %v\n", u.Social)
+	return body, nil
 }
